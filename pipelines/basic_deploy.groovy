@@ -16,6 +16,11 @@ pipeline{
                     sh "echo '[INFO]: LS'"
                     sh "ls"
 
+                    sh "tar -cvf TodoApi.tar TodoApi"
+
+                    sh "echo '[INFO]: LS'"
+                    sh "ls"
+
                     /*
                     
                     // login Azure
