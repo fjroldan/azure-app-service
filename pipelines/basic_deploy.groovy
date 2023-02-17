@@ -8,8 +8,8 @@ pipeline{
             steps {
                 git branch: 'main', credentialsId: 'github_credentials', url: 'https://github.com/fjroldan/ansible-books.git'
 
-                def resourceGroup = 'myresourcegroup-64471'
-                def webAppName = 'webapp-64471'
+                def resourceGroup = "myresourcegroup-64471";
+                def webAppName = "webapp-64471";
                 
                 // login Azure
                 //withCredentials([usernamePassword(credentialsId: '<service_princial>', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
@@ -20,8 +20,8 @@ pipeline{
                 //}
 
                 // get publish settings
-                def pubProfilesJson = sh script: "az webapp deployment list-publishing-profiles -g $resourceGroup -n $webAppName", returnStdout: true
-                def ftpProfile = getFtpPublishProfile pubProfilesJson
+                def pubProfilesJson = sh script: "az webapp deployment list-publishing-profiles -g $resourceGroup -n $webAppName", returnStdout: true;
+                def ftpProfile = getFtpPublishProfile pubProfilesJson;
 
                 // upload package
                 sh "curl -T target/calculator-1.0.war $ftpProfile.url/webapps/ROOT.war -u '$ftpProfile.username:$ftpProfile.password'"
