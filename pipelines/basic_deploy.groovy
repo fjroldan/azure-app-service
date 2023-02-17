@@ -37,9 +37,11 @@ pipeline{
                     def ftpProfile = getFtpPublishProfile pubProfilesJson
 
                     // upload package
-                    sh "curl -T TodoApi.tar ftps://waws-prod-am2-533.ftp.azurewebsites.windows.net -u '$ftpProfile.username:$ftpProfile.password'"
+                    // sh "curl -T TodoApi.tar ftps://waws-prod-am2-533.ftp.azurewebsites.windows.net -u '$ftpProfile.username:$ftpProfile.password'"
 
-                    
+                    sh "curl -T TodoApi.tar -k "sftp://waws-prod-am2-533.ftp.azurewebsites.windows.net/site/wwwroot" -u '$ftpProfile.username:$ftpProfile.password'"
+
+
                     /*sh '''
                     ftp -n <<EOF
                     open waws-prod-am2-533.ftp.azurewebsites.windows.net
