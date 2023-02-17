@@ -12,13 +12,18 @@ pipeline{
                     
                     def resourceGroup = "myresourcegroup-64471"
                     def webAppName = "webapp-64471"
+
+                    sh "[INFO]: LS"
+                    sh "ls"
+
+                    /*
                     
                     // login Azure
                     sh '''
                     az login --service-principal -u ${ARM_CLIENT_ID} -p ${ARM_CLIENT_SECRET} -t ${ARM_TENANT_ID}
                     az account set -s ${ARM_SUBSCRIPTION_ID}
                     '''
-                    
+
                     // get publish settings
                     def pubProfilesJson = sh script: "az webapp deployment list-publishing-profiles -g $resourceGroup -n $webAppName", returnStdout: true
                     def ftpProfile = getFtpPublishProfile pubProfilesJson
@@ -28,6 +33,8 @@ pipeline{
 
                     // log out
                     sh 'az logout'
+
+                    */
                 }
             }
         }
