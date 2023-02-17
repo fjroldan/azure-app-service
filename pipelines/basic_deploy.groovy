@@ -20,8 +20,6 @@ pipeline{
 
                     sh "echo '[INFO]: LS'"
                     sh "ls"
-
-                    /*
                     
                     // login Azure
                     sh '''
@@ -34,12 +32,10 @@ pipeline{
                     def ftpProfile = getFtpPublishProfile pubProfilesJson
 
                     // upload package
-                    sh "curl -T target/calculator-1.0.war $ftpProfile.url/webapps/ROOT.war -u '$ftpProfile.username:$ftpProfile.password'"
+                    sh "curl -T TodoApi.tar $ftpProfile.url/TodoApi.tar -u '$ftpProfile.username:$ftpProfile.password'"
 
                     // log out
                     sh 'az logout'
-
-                    */
                 }
             }
         }
