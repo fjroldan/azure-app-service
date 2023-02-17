@@ -19,9 +19,11 @@ https://github.com/Azure-Samples/nodejs-docs-hello-world
 # planes de Azure App Service
 https://learn.microsoft.com/es-es/azure/app-service/overview-hosting-plans
 
-
 # CI-CD
 https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_source_control
+
+# Resourse
+https://learn.microsoft.com/en-us/azure/app-service/samples-resource-manager-templates
 
 ## Comandos
 - Para verificar el código
