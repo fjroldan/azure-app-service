@@ -50,7 +50,7 @@ pipeline{
                     EOF
                     '''*/
 
-                    sh 'az webapp deployment source config-zip --resource-group $resourceGroup --name $webAppName --src TodoApi.tar'
+                    sh "az webapp deployment source config-zip --resource-group 'myresourcegroup-64471' --name 'webapp-64471' --src TodoApi.tar"
                     
                     // log out
                     sh 'az logout'
