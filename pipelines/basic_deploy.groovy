@@ -16,7 +16,7 @@ pipeline{
                     sh "echo '[INFO]: LS'"
                     sh "ls"
 
-                    sh "zip TodoApi.zip TodoApi"
+                    sh "zip -r TodoApi.zip TodoApi"
 
                     sh "echo '[INFO]: LS'"
                     sh "ls"
