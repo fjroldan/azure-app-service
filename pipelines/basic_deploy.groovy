@@ -13,7 +13,7 @@ pipeline{
                     def resourceGroup = "myresourcegroup-64471"
                     def webAppName = "webapp-64471"
 
-                    sh "[INFO]: LS"
+                    sh "echo '[INFO]: LS'"
                     sh "ls"
 
                     /*
