@@ -14,13 +14,11 @@ pipeline{
                     def webAppName = "webapp-64471"
                     
                     // login Azure
-                    withCredentials([usernamePassword(credentialsId: "demo-avv", passwordVariable: "${ARM_CLIENT_SECRET}", usernameVariable: "${ARM_CLIENT_ID}")]) {
-                        sh '''
-                        az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
-                        az account set -s $AZURE_SUBSCRIPTION_ID
-                        '''
-                    }
-
+                    sh '''
+                    az login --service-principal -u ${ARM_CLIENT_ID} -p ${ARM_CLIENT_SECRET} -t ${ARM_TENANT_ID}
+                    az account set -s ${ARM_SUBSCRIPTION_ID}
+                    '''
+                    
                     // get publish settings
                     def pubProfilesJson = sh script: "az webapp deployment list-publishing-profiles -g $resourceGroup -n $webAppName", returnStdout: true
                     def ftpProfile = getFtpPublishProfile pubProfilesJson
