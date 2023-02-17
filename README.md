@@ -3,7 +3,7 @@
 dotnet new webapi -o TodoApi
 cd TodoApi
 dotnet add package Microsoft.EntityFrameworkCore.InMemory
-
+dotnet run
 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/bcb520ca-0fe0-4eaa-9afc-da74b5c01bd7"
 az account list
@@ -18,6 +18,10 @@ https://github.com/Azure-Samples/nodejs-docs-hello-world
 
 # planes de Azure App Service
 https://learn.microsoft.com/es-es/azure/app-service/overview-hosting-plans
+
+
+# CI-CD
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_source_control
 
 ## Comandos
 - Para verificar el código
