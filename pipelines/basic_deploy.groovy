@@ -21,6 +21,13 @@ pipeline{
                     sh "echo '[INFO]: LS'"
                     sh "ls"
                     
+
+
+                    azureWebAppPublish azureCredentialsId: 'azure_pipeline', publishType: 'file',
+                       resourceGroup: resourceGroup, appName: webAppName,
+                       filePath: 'TodoApi.tar', sourceDirectory: '.', targetDirectory: 'webapps'
+
+                    /*
                     // login Azure
                     sh '''
                     az login --service-principal -u ${ARM_CLIENT_ID} -p ${ARM_CLIENT_SECRET} -t ${ARM_TENANT_ID}
@@ -43,9 +50,9 @@ pipeline{
                     EOF
                     '''
                     
-
                     // log out
                     sh 'az logout'
+                    */
                 }
             }
         }
