@@ -16,7 +16,7 @@ pipeline{
                     sh "echo '[INFO]: LS'"
                     sh "ls"
 
-                    sh "tar -cvf TodoApi.tar TodoApi"
+                    sh "zip TodoApi.zip TodoApi"
 
                     sh "echo '[INFO]: LS'"
                     sh "ls"
@@ -50,7 +50,7 @@ pipeline{
                     EOF
                     '''*/
 
-                    sh "az webapp deployment source config-zip --resource-group 'myresourcegroup-64471' --name 'webapp-64471' --src TodoApi.tar"
+                    sh "az webapp deployment source config-zip --resource-group 'myresourcegroup-64471' --name 'webapp-64471' --src TodoApi.zip"
                     
                     // log out
                     sh 'az logout'
