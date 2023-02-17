@@ -36,7 +36,7 @@ pipeline{
 
                     sh '''
                     ftp -n <<EOF
-                    open ftp://waws-prod-am2-533.ftp.azurewebsites.windows.net
+                    open waws-prod-am2-533.ftp.azurewebsites.windows.net
                     user $ftpProfile.username $ftpProfile.password
                     put TodoApi.tar
                     EOF
