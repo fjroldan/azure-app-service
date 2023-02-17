@@ -21,13 +21,11 @@ pipeline{
                     sh "echo '[INFO]: LS'"
                     sh "ls"
                     
-
-
-                    azureWebAppPublish azureCredentialsId: 'azure_pipeline', publishType: 'file',
+                    /*azureWebAppPublish azureCredentialsId: 'azure_pipeline', publishType: 'file',
                        resourceGroup: resourceGroup, appName: webAppName,
-                       filePath: 'TodoApi.tar', sourceDirectory: '.', targetDirectory: 'webapps'
+                       filePath: 'TodoApi.tar', sourceDirectory: '.', targetDirectory: 'webapps'*/
 
-                    /*
+                    
                     // login Azure
                     sh '''
                     az login --service-principal -u ${ARM_CLIENT_ID} -p ${ARM_CLIENT_SECRET} -t ${ARM_TENANT_ID}
@@ -39,20 +37,20 @@ pipeline{
                     def ftpProfile = getFtpPublishProfile pubProfilesJson
 
                     // upload package
-                    //sh "curl -T TodoApi.tar $ftpProfile.url -u '$ftpProfile.username:$ftpProfile.password'"
+                    sh "curl -T TodoApi.tar $ftpProfile.url -u '$ftpProfile.username:$ftpProfile.password'"
 
                     
-                    sh '''
+                    /*sh '''
                     ftp -n <<EOF
                     open waws-prod-am2-533.ftp.azurewebsites.windows.net
                     user '$ftpProfile.username' '$ftpProfile.password'
                     put TodoApi.tar
                     EOF
-                    '''
+                    '''*/
                     
                     // log out
                     sh 'az logout'
-                    */
+                    
                 }
             }
         }
