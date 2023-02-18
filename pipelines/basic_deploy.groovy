@@ -17,9 +17,8 @@ pipeline{
                     sh "ls"
 
                     sh "echo '[INFO]: Build'"
-                    sh "cd TodoApi"
-                    sh "dotnet run"
-                    sh "cd .."
+                    sh "dotnet run --project /root/workspace/basic_deploy_app_service/TodoApi"
+                    
 
                     sh "zip -r TodoApi.zip TodoApi"
 
