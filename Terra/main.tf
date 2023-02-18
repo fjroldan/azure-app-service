@@ -47,6 +47,9 @@ resource "azurerm_linux_web_app" "webapp" {
   https_only            = false
   site_config { 
     //minimum_tls_version = "1.2"
+    application_stack {
+      dotnet_version = "6.0"
+    }
   }
 }
 

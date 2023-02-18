@@ -16,6 +16,11 @@ pipeline{
                     sh "echo '[INFO]: LS'"
                     sh "ls"
 
+                    sh "echo '[INFO]: Build'"
+                    sh "cd TodoApi"
+                    sh "dotnet run"
+                    sh "cd .."
+
                     sh "zip -r TodoApi.zip TodoApi"
 
                     sh "echo '[INFO]: LS'"
